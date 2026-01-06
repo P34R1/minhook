@@ -29,6 +29,7 @@
 #include <windows.h>
 #include <tlhelp32.h>
 #include <limits.h>
+#include <stddef.h>
 
 #include "../include/MinHook.h"
 #include "buffer.h"
@@ -745,7 +746,7 @@ MH_STATUS WINAPI MH_SetThreadFreezeMethod(MH_THREAD_FREEZE_METHOD method)
 
     if (method == MH_FREEZE_METHOD_FAST_UNDOCUMENTED && !pNtGetNextThread)
     {
-        HMODULE hNtdll = GetModuleHandle(L"ntdll.dll");
+        HMODULE hNtdll = GetModuleHandle("ntdll.dll");
         if (hNtdll)
             pNtGetNextThread = (NtGetNextThread_t)GetProcAddress(hNtdll, "NtGetNextThread");
 

@@ -271,7 +271,7 @@ unsigned int hde64_disasm(const void *code, hde64s *hs)
                 break;
             case 4:
                 hs->flags |= F_DISP32;
-                hs->disp.disp32 = *(uint32_t *)p;
+                memcpy(&hs->disp.disp32, p, sizeof(uint32_t));
                 break;
         }
         p += disp_size;
@@ -315,7 +315,7 @@ unsigned int hde64_disasm(const void *code, hde64s *hs)
     if (cflags & C_REL32) {
       rel32_ok:
         hs->flags |= F_IMM32 | F_RELATIVE;
-        hs->imm.imm32 = *(uint32_t *)p;
+        memcpy(&hs->imm.imm32, p, sizeof(uint32_t));
         p += 4;
     } else if (cflags & C_REL8) {
         hs->flags |= F_IMM8 | F_RELATIVE;
