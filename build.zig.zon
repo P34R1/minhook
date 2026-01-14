@@ -1,0 +1,14 @@
+.{
+    .name = .minhook,
+    .version = "1.3.4",
+    .minimum_zig_version = "0.16.0-dev.2193+fc517bd01",
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        "include",
+        "LICENSE.txt",
+        "README.md",
+    },
+    .fingerprint = 0xfbe8f9ac572267c7,
+}
