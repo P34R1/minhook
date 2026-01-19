@@ -91,3 +91,7 @@ pub fn enableAll() Error!void {
 pub fn disableAll() Error!void {
     return MH_DisableHook(MH_ALL_HOOKS).toError();
 }
+
+test {
+    @import("std").testing.refAllDeclsRecursive(@This());
+}
