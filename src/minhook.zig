@@ -93,5 +93,5 @@ pub fn disableAll() Error!void {
 }
 
 test {
-    @import("std").testing.refAllDeclsRecursive(@This());
+    @import("std").testing.refAllDecls(@This());
 }
